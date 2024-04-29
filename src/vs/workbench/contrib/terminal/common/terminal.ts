@@ -135,7 +135,7 @@ export interface ITerminalConfiguration {
 	altClickMovesCursor: boolean;
 	macOptionIsMeta: boolean;
 	macOptionClickForcesSelection: boolean;
-	gpuAcceleration: 'auto' | 'on' | 'canvas' | 'off';
+	gpuAcceleration: 'auto' | 'on' | 'off';
 	rightClickBehavior: 'default' | 'copyPaste' | 'paste' | 'selectWord' | 'nothing';
 	middleClickBehavior: 'default' | 'paste';
 	cursorBlinking: boolean;
@@ -176,6 +176,7 @@ export interface ITerminalConfiguration {
 	windowsEnableConpty: boolean;
 	wordSeparators: string;
 	enableFileLinks: 'off' | 'on' | 'notRemote';
+	allowedLinkSchemes: string[];
 	unicodeVersion: '6' | '11';
 	localEchoLatencyThreshold: number;
 	localEchoExcludePrograms: ReadonlyArray<string>;
@@ -201,6 +202,11 @@ export interface ITerminalConfiguration {
 	shellIntegration?: {
 		enabled: boolean;
 		decorationsEnabled: boolean;
+		// TODO: Legacy - remove soon
+		suggestEnabled: boolean;
+	};
+	suggest?: {
+		enabled: boolean;
 	};
 	enableImages: boolean;
 	smoothScrolling: boolean;
